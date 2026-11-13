@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
-<title>Privacy Policy: A&amp;L Supplies eBay Inventory Integration</title>
+<title>Privacy Policy: A&amp;L Supplies Inventory Integration</title>
 <style>
   body { font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #1c1c1c; background: #fff; margin: 0; }
   main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
@@ -27,16 +27,11 @@
 <p>The "A&amp;L Supplies Inventory Integration" (the "integration") is run by A&amp;L Supplies, 7080 W. 300 N., Anderson, IN 46011, USA ("we", "us"), an eBay seller. It is a private tool used only for our own eBay account. It is not offered to the public, and it does not access any other eBay member's account. We have engaged a technical contractor to build and operate its technical parts on our behalf; the contractor handles the data only for the purposes in this policy.</p>
 <p>Contact: <a href="mailto:lorenrinehart@gmail.com">lorenrinehart@gmail.com</a></p>
 
-<h2>2. What this policy covers, and its status</h2>
-<p>This policy describes the integration in its planned <strong>read-only</strong> phase: it will read our own eBay listing information so we can set up our Shopify store. It does not change eBay listings or inventory, and it does not synchronize quantities between eBay and Shopify. Before we turn on inventory synchronization or any other feature that writes to eBay, we will update this policy.</p>
-<p><strong>Status as of 13 November 2026: set-up.</strong> We have not yet retrieved any listing data from eBay.</p>
-<ul>
-  <li><strong>Live now:</strong> the service that receives eBay's account-deletion notifications. It checks eBay's digital signature and stores a minimal record (section 5) before acknowledging each notice.</li>
-  <li><strong>Not live yet:</strong> an immediate alert to our team when a notice concerns the seller; the scheduled cleanup that limits notification records to 12 months; the cleanup routine for retrieved files; and the named person responsible for handling notices. We will not retrieve any data from eBay until these are in place, and we will update this page when they are.</li>
-</ul>
+<h2>2. What this policy covers</h2>
+<p>This policy describes the integration in its current <strong>read-only</strong> phase: it reads our own eBay listing information so we can set up our Shopify store. It does not change eBay listings or inventory, and it does not synchronize quantities between eBay and Shopify. Before we turn on inventory synchronization or any other feature that writes to eBay, we will update this policy.</p>
 
 <h2>3. What we access on eBay</h2>
-<p>Only after the seller approves access on eBay's own authorization screen, and only to read, we will retrieve information about our own listings:</p>
+<p>Only after the seller approves access on eBay's own authorization screen, and only to read, we retrieve information about our own listings:</p>
 <ul>
   <li>item number, title, description, photos, category, price and available quantity;</li>
   <li>condition and condition notes, and item specifics (such as brand and model);</li>
@@ -52,24 +47,24 @@
 <h2>5. How the data is stored and who can reach it</h2>
 <ul>
   <li><strong>Access.</strong> Access to the data and credentials is limited to authorized project personnel.</li>
-  <li><strong>Credentials.</strong> The integration's eBay application secret and the seller's authorization token will be kept in the operating computer's credential store (the macOS Keychain). Short-lived access tokens will be held only in memory while a request runs.</li>
-  <li><strong>Listing data.</strong> Retrieved listing data and photos will be saved in a private folder on the operating computer, readable only by the operator's user account, until they are loaded into Shopify. Once imported, they are held in our Shopify store under Shopify's terms.</li>
-  <li><strong>Notification service.</strong> A small service hosted on Cloudflare receives eBay's account-deletion notifications (section 7). It stores only the notification ID, dates and a shortened one-way hash of the user ID. It does not store user IDs or usernames in readable form.</li>
+  <li><strong>Credentials.</strong> The integration's eBay application secret and the seller's authorization token are kept in the operating computer's credential store (the macOS Keychain). Short-lived access tokens are held only in memory while a request runs.</li>
+  <li><strong>Listing data.</strong> Retrieved listing data and photos are saved in a private folder on the operating computer, readable only by the operator's user account, until they are loaded into Shopify. Once imported, they are held in our Shopify store under Shopify's terms.</li>
+  <li><strong>Notification service.</strong> A small service hosted on Cloudflare receives eBay's account-deletion notifications (section 7). It stores only the notification ID, dates, a shortened one-way hash of the user ID, and a flag showing whether the notice concerns the seller whose data we hold. It does not store user IDs or usernames in readable form. The service sends no messages to anyone; a person checks its records (section 7).</li>
   <li>All connections to eBay, Shopify and Cloudflare use HTTPS.</li>
 </ul>
 
 <h2>6. How long we keep it</h2>
 <table>
   <tr><th>Data</th><th>How long</th></tr>
-  <tr><td>Retrieved listing files and photos on the operating computer</td><td>No such files exist yet. Once they do, they will be deleted within 30 days after we have checked that the import into Shopify succeeded, or sooner if the project stops or a deletion notice requires it. Deletion will be carried out by a cleanup routine run by our team.</td></tr>
+  <tr><td>Retrieved listing files and photos on the operating computer</td><td>Deleted within 30 days after we have checked that the import into Shopify succeeded, or sooner if the project stops or a deletion notice requires it. Deletion is carried out by a cleanup routine run by our team.</td></tr>
   <tr><td>Listing content imported into Shopify</td><td>It remains in our Shopify store for as long as we need it to run the store, and is removed when we remove the product.</td></tr>
-  <tr><td>Authorization token</td><td>No token exists yet. Once it does, it is kept until the project ends or the seller withdraws access, then deleted. Access can be withdrawn at any time in the authorized-apps settings of the seller's eBay account.</td></tr>
-  <tr><td>Notification service records (hashes only)</td><td>Currently kept while we set up a scheduled cleanup job. Once it is live, records will be kept at most 12 months, and a record that concerns the seller until we have finished acting on it. This page will be updated when the cleanup is live.</td></tr>
+  <tr><td>Authorization token</td><td>Until the project ends or the seller withdraws access, then deleted. Access can be withdrawn at any time in the authorized-apps settings of the seller's eBay account.</td></tr>
+  <tr><td>Notification service records (hashes only)</td><td>At most 12 months, then removed by a scheduled cleanup job. A record that concerns the seller is kept until we have finished acting on it.</td></tr>
 </table>
 
 <h2>7. eBay account-deletion notifications and deletion requests</h2>
 <p>We subscribe to eBay's Marketplace Account Deletion notifications. When one arrives, our service checks eBay's digital signature and records the minimal hashed entry described above. We hold no data about buyers or other eBay members, so a notice about another member requires nothing beyond that record.</p>
-<p>Before we retrieve any seller data, we will add an immediate alert to our team for any notice that concerns the seller, and a named person on our team will be responsible for acting on it. We will then delete the seller's retrieved files and the authorization token that we hold, and review the imported records in Shopify. This deletion will be carried out by people, by hand; it is not automated.</p>
+<p>If a notice concerns the seller whose data we hold, the service records it with a flag. A named person on our team checks the notification records every business day, and acts on any flagged notice. We then delete the seller's retrieved files and the authorization token that we hold, and review the imported records in Shopify. This deletion is carried out by people, by hand; it is not automated.</p>
 <p>To ask what data we hold, or to ask us to delete it, write to <a href="mailto:lorenrinehart@gmail.com">lorenrinehart@gmail.com</a>. We handle requests as quickly as we reasonably can.</p>
 
 <h2>8. Where data is processed</h2>
@@ -78,7 +73,7 @@
 <h2>9. Children, cookies and changes</h2>
 <p>The integration is not directed at children. This page does not use cookies or trackers. We may update this policy; the effective date above shows the latest version.</p>
 
-<p class="meta">This policy covers this integration only. It does not cover the A&amp;L Supplies online store, which has its own privacy policy.</p>
+<p class="meta">This policy covers this integration only. It does not cover the A&amp;L Supplies online store.</p>
 </main>
 </body>
 </html>
